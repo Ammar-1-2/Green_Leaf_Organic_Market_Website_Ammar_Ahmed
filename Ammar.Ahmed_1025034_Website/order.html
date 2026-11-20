@@ -1,0 +1,93 @@
+<!-- Line 4-12: Settings that do not show on the page: the page type and language, the letters and symbols it can show (utf-8),
+  a setting so it fits phone screens, the title on the browser tab, and the link that connects style.css.
+  The first comment holds your name and registration number, which the brief needs at the top of every file. -->
+<!DOCTYPE html>
+<!-- Name: Ammar.Ahmed| Registration number: 1025034 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Leaf Organic Market - Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Line 16-36 <body> starts the visible page. The header holds three things: the logo and shop name (a link back to Home), the menu (a list of three links) and the Cart link. 
+  The link with class="active" is the Order page you are on, so CSS makes it green. The span with id="cartCount" is where JavaScript puts the number of items in the cart.-->
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="Homepage.html">
+        <img src="images/logo.svg" alt="Green Leaf logo">
+        <div>
+          <span class="brand-name">Green Leaf</span>
+          <span class="brand-sub">Organic Market</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="Homepage.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="order.html" class="active">Order</a></li>
+        </ul>
+      </nav>
+      <a class="cart-link" href="order.html">Cart (<span id="cartCount">0</span>)</a>
+    </div>
+  </header>
+
+  <!-- Line 39-43The main content starts with a green banner holding the page heading and one sentence.-->
+  <main>
+    <section class="banner">
+      <h1>Place your order</h1>
+      <p>Fill in the form below to order your fresh produce.</p>
+    </section>
+
+    <!-- Line 50-69: The order-layout box puts the form on the left and the cart on the right. The form has three text boxes: name, email and quantity. Each has a label, an input and an empty paragraph under it. JavaScript writes the error message for that box into the empty paragraph. The form message paragraph shows the final result, and the Submit button sends the form.
+    •	<label for="fullName"> matches <input id="fullName">, so clicking the label selects the box. This helps accessibility.
+    •	The ids (fullName, nameError, formMessage...) are how order.js finds each part.
+    •	Use invented test details only.
+-->
+    <div class="order-layout">
+      <form id="orderForm" class="order-form">
+        <p class="note">Use invented test details only. Nothing is sent anywhere.</p>
+
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" placeholder="Test Customer">
+        <p class="error" id="nameError"></p>
+
+        <label for="email">Email address</label>
+        <input type="text" id="email" placeholder="test@example.com">
+        <p class="error" id="emailError"></p>
+
+        <label for="quantity">Quantity (for example 2)</label>
+        <input type="text" id="quantity" placeholder="2">
+        <p class="error" id="quantityError"></p>
+
+        <p id="formMessage" class="form-message"></p>
+
+        <button type="submit" class="button">Submit order</button>
+      </form>
+
+      <!-- Line 73-82: The aside is a side area. It holds the basket picture and the cart box. JavaScript fills the "orderSummary" div with the items you added on the Products page.
+        The Clear cart button runs clearCart. The last </div> closes the order-layout box and </main> ends the main content.-->
+      <aside>
+        <img src="images/hero.svg" alt="A basket of fresh fruit and vegetables">
+        <div class="summary-box">
+          <h2>Your cart</h2>
+          <div id="orderSummary">Nothing in your cart yet.</div>
+          <p><button class="button" onclick="clearCart()">Clear cart</button></p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Line 85-93: The footer is the small text at the bottom (&copy; is the code for the © symbol).
+   The script tags at the bottom load the JavaScript files. They go last so the page appears first.-->
+  <footer>
+    <p>&copy; Green Leaf Organic Market (student project). Illustrations are my own drawings. No real personal data is collected.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="order.js"></script>
+</body>
+</html>

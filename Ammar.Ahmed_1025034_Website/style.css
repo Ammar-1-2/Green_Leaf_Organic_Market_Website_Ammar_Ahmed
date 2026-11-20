@@ -1,0 +1,419 @@
+/* Lines 4-28: Rules for the whole page. The * means every element, and border-box stops boxes growing bigger than expected. 
+The page has a very dark background, almost white text, the Arial font and green links. The main area is centred and never wider than 1100px. */
+
+/* Name: Ammar.Ahmed | Registration number: 1025034 */
+/* style.css - the only stylesheet. All three pages use it. */
+
+/* ----- basic webpage settings ----- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #141414;
+  color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: #8fdc5a;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ----- header and menu (which is the same on every page) ----- */
+/* Line 33-105: The header row puts the logo on the left, the menu in the middle and the cart on the right (display: flex and space-between). The menu list loses its bullets and becomes a row. 
+  The page you are on (.active) is green with a green line, and other links show a grey line when the mouse is over them. The cart link looks like a small rounded button. */
+header {
+  border-bottom: 1px solid #333333;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #f2f2f2;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+}
+
+.brand-name {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+
+.brand-sub {
+  display: block;
+  font-size: 0.85rem;
+  color: #b5b5b5;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 6px 2px;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+  border-bottom-color: #b5b5b5;
+}
+
+nav a.active {
+  color: #8fdc5a;
+  border-bottom-color: #8fdc5a;
+}
+
+.cart-link {
+  background-color: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 20px;
+  padding: 6px 14px;
+  color: #f2f2f2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ----- The big boxes at the top of each page ----- */
+/* Line 110-153: The .hero is the big dark box on the Home page. It uses grid with two columns: text on the left, basket on the right. 
+  The big heading has "Local." in green. The .banner is the green box at the top of the Products and Order pages. */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  margin: 24px 0;
+  padding: 24px;
+  background-color: #1e1e1e;
+  border-radius: 14px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.hero h1 span {
+  display: block;
+  color: #8fdc5a;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 320px;
+  justify-self: center;
+}
+
+.banner {
+  margin: 24px 0;
+  padding: 24px;
+  background-color: #1f3d1c;
+  border-radius: 14px;
+}
+
+.banner h1 {
+  margin: 0 0 6px;
+  font-size: 2.2rem;
+}
+
+.banner p {
+  margin: 0;
+  color: #b5b5b5;
+}
+
+/* ----- green buttons ----- */
+/* Line 157-168: Every button and button-style link shares this look: bright green, rounded, bold text and a hand cursor.
+ When the mouse is over it, the green gets lighter. */
+.button {
+  display: inline-block;
+  background-color: #8fdc5a;
+  color: #0d1a0b;
+  border: 0;
+  border-radius: 22px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #a6ec78;
+}
+
+/* ----- product cards ----- */
+/* Line 177-217: The .grid arranges all the cards in 4 equal columns with a gap. Each of the .card is a dark box with a thin border, rounded corners and centred text. 
+  Inside, the picture is 100px, the price is grey, and the Add to cart button fills the width of the card. */
+.section-title {
+  text-align: center;
+  margin: 32px 0 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background-color: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+}
+
+.card h3 {
+  margin: 8px 0 2px;
+  font-size: 1rem;
+}
+
+.price {
+  margin: 0 0 10px;
+  color: #b5b5b5;
+  font-size: 0.95rem;
+}
+
+.card .button {
+  width: 100%;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+/* ----- filter buttons (Products page) ----- */
+/* Line 223-244: The filter buttons sit in a row and wrap to the next line if there is no room.
+ They are dark and rounded. The one with class "selected" is green.. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  background-color: #1e1e1e;
+  color: #f2f2f2;
+  border: 1px solid #333333;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.filter-button.selected {
+  background-color: #8fdc5a;
+  color: #0d1a0b;
+  font-weight: bold;
+}
+
+/* ----- cart message bar ----- */
+/* Line 249-253: The dark green bar that shows the cart message, with rounded corners and some space around it.*/
+.cart-status {
+  background-color: #1f3d1c;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+/* ----- three points under the products (Home page) ----- */
+/*  */
+.trust {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  margin: 0 0 32px;
+  padding: 18px;
+  background-color: #1f3d1c;
+  border-radius: 12px;
+}
+
+/* ----- The table (Products page) ----- */
+/* Line 271-292: The table fills the width, joins its borders into single lines, and has a dark background.
+ The heading cells are dark green and every cell has space inside and a thin line under it. */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  margin-bottom: 32px;
+}
+
+caption {
+  text-align: left;
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #333333;
+  text-align: left;
+}
+
+th {
+  background-color: #1f3d1c;
+}
+
+/* ----- order page ----- */
+/* Line 297-370: The order-layout puts the form and cart into two columns. The form is a dark box with labels, with grey text boxes and a full-width Submit button. 
+The .error text is red and min-height keeps room for one line so the page does not jump. The message box turns green (.ok) or red (.bad). The basket picture and the cart box (.summary-box) are on the right. */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 32px;
+}
+
+.order-form {
+  background-color: #1e1e1e;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.order-form label {
+  display: block;
+  margin: 12px 0 4px;
+}
+
+.order-form input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #2a2a2a;
+  color: #f2f2f2;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.order-form .button {
+  width: 100%;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #b5b5b5;
+}
+
+.error {
+  color: #ff8a80;
+  font-size: 0.9rem;
+  min-height: 1.3em;
+  margin: 4px 0 0;
+}
+
+.form-message {
+  margin: 14px 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #333333;
+}
+
+.form-message.ok {
+  border-color: #8fdc5a;
+  color: #8fdc5a;
+}
+
+.form-message.bad {
+  border-color: #ff8a80;
+  color: #ff8a80;
+}
+
+aside img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto 12px;
+}
+
+.summary-box {
+  background-color: #1e1e1e;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+/* ----- footer ----- */
+/* Line 374-380: A thin line at the top, small grey text, centred. */
+footer {
+  border-top: 1px solid #333333;
+  padding: 20px;
+  color: #b5b5b5;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Mobile View (600px or less) */
+/* Line 384-417: This is the one media query. Everything inside only works when the screen is 600px wide or less.
+ On a phone, the header and hero stack in one column with centred text and a 15px gap, the product cards use one column, the three points stack, and the order form and cart stack too.
+•	A media query is a rule that only applies on certain screen sizes. This is how the page works on both phones and computers. */
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .trust {
+    flex-direction: column;
+  }
+
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+}

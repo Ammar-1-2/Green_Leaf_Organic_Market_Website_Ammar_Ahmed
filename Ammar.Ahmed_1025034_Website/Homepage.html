@@ -1,0 +1,101 @@
+<!-- Lines 5-13: it is the settings that do not show on the page: the page type and language,
+  the letters and symbols it can show (utf-8), a setting so it fits phone screens, the title on the browser tab, 
+  and the link that connects style.css. The first comment holds your name and registration number, 
+  which the brief needs at the top of every file. -->
+<!DOCTYPE html>
+<!-- Name: Ammar.Ahmed| Registration number: 1025034 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Leaf Organic Market - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+  <!-- Lines 17-36 : Its purpose: <body> starts the visible page. The header holds three things: the logo and shop name (a link back to Home), the menu (a list of three links) and the Cart link. The link with class="active" is the Home page you are on, so CSS makes it green.
+     The span with id="cartCount" is where JavaScript puts the number of items in the cart. -->
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="Homepage.html">
+        <img src="images/logo.svg" alt="Green Leaf logo">
+        <div>
+          <span class="brand-name">Green Leaf</span>
+          <span class="brand-sub">Organic Market</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="Homepage.html" class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="order.html">Order</a></li>
+        </ul>
+      </nav>
+      <a class="cart-link" href="order.html">Cart (<span id="cartCount">0</span>)</a>
+    </div>
+  </header>
+
+  <!--Line 40-48: What does it do: <main> starts the main content. The hero section then holds the big heading ("Local." is in a span so CSS can make it green),
+     a short sentence, a Shop now link that looks like a button, and the basket picture. The alt text describes the picture for screen readers. -->
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Fresh. Organic. <span>Local.</span></h1>
+        <p>Healthy choices for a greener tomorrow.</p>
+        <a class="button" href="products.html">Shop now</a>
+      </div>
+      <img src="images/hero.svg" alt="A basket of fresh fruit and vegetables">
+    </section>
+
+    <!--Line 54-80: What is it: A heading and a grid with four product cards. Each card is a box with a picture, the product name, the price and an Add to cart button.
+     When the button is clicked, onclick runs the addToCart function in cart.js and gives it the name and price.
+    •	alt="..." is the picture description for screen readers and for when the picture cannot load.
+    •	class="card" lets CSS style every card the same way. -->
+    <h2 class="section-title">Our featured products</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images/apple.svg" alt="Two red apples">
+        <h3>Apples</h3>
+        <p class="price">AED 4.50/1kg</p>
+        <button class="button" onclick="addToCart('Apples', 4.50)">Add to cart</button>
+      </div>
+      <div class="card">
+        <img src="images/banana.svg" alt="A yellow banana">
+        <h3>Bananas</h3>
+        <p class="price">AED 3.50/1kg</p>
+        <button class="button" onclick="addToCart('Bananas', 3.50)">Add to cart</button>
+      </div>
+      <div class="card">
+        <img src="images/carrot.svg" alt="An orange carrot">
+        <h3>Carrots</h3>
+        <p class="price">AED 2.50/1kg</p>
+        <button class="button" onclick="addToCart('Carrots', 2.50)">Add to cart</button>
+      </div>
+      <div class="card">
+        <img src="images/lettuce.svg" alt="A head of green lettuce">
+        <h3>Lettuce</h3>
+        <p class="price">AED 2.00/1kg</p>
+        <button class="button" onclick="addToCart('Lettuce', 2.00)">Add to cart</button>
+      </div>
+    </div>
+
+    <!--Line 83-90: What it shows: The green message bar has an id so JavaScript can change its text when you add items.
+     Under it is a list of three short points about the shop (ul is the list, li is each point). </main> ends the main content. -->
+    <p class="cart-status" id="cartStatus">Your cart is empty. Add something fresh.</p>
+
+    <ul class="trust">
+      <li>100% organic products</li>
+      <li>Fresh delivery available</li>
+      <li>Support local farmers</li>
+    </ul>
+  </main>
+
+    <!-- Line 95-100: What it shows: The footer which is the small text at the bottom of the page (&copy; is the code for the © symbol). 
+     The script tag at the bottom loads the JavaScript file. They go last so the page appears first.-->
+  <footer>
+    <p> &copy; Green Leaf Organic Market (student project). Illustrations are simple SVG graphics created with AI help for this project. No real personal data is collected.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>
